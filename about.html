@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIN at ASIJ - About</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Fullscreen top image */
+    .top-image {
+      width: 100%;
+      height: 100vh;
+      background: url('assets/P1150228 2.JPG') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Typing text effect */
+    .top-image h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin: 0;
+      transform: translateY(-20%);
+      white-space: nowrap;
+      border-right: 3px solid white;
+      width: 0;
+      overflow: hidden;
+      animation: typing 2.5s steps(20) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 12ch; } /* Adjust based on text length */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Navbar uses global styles from styles.css */
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+<div class="logo"><a href="index.html" aria-label="GIN Home"><img src="assets/2Logocopy.png" alt="GIN at ASIJ" class="logo-img"></a></div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="team.html" class="nav-link">Our Team</a></li>
+          <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+        </ul>
+        <div class="nav-clock" aria-live="polite" title="Current time"></div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Announcement banner (site-wide, dismissible) -->
+  <div class="announce" id="announce" role="status" aria-live="polite" style="display:none;">
+    <div class="inner">
+      <div class="msg" id="announce-msg">Announcement</div>
+      <button class="close" id="announce-close" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- Global search bar -->
+  <div class="site-search" id="site-search" style="display:none;">
+    <div class="container">
+      <input id="search-input" type="search" placeholder="Search this page… (press / to focus)" aria-label="Search" />
+      <button id="search-clear" class="cta-button secondary" type="button">Clear</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen image at top (moved below navbar) -->
+  <div class="top-image">
+    <h1 id="typing-text">About GIN</h1>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container about-content">
+        <div class="about-text">
+          <p>
+            GIN stands for the Global Issues Network. GIN is a worldwide 'student-led local, regional, global impact group.' GIN started at the International School of Luxembourg in 2003 when educators recognized youth needed a platform to act on the biggest challenges facing our world. GIN is active at ASIJ!
+          </p>
+          <p>
+            GIN at ASIJ empowers middle school students to become changemakers through project-based learning aligned to the UN Sustainable Development Goals (SDGs). Students collaborate to design and lead initiatives that create meaningful impact in our school and local community.
+          </p>
+          <p>
+            We value student voice, inclusion, and sustainability. Whether you're passionate about environmental action, equity, or innovation, there's a place for you in GIN.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <h3>¥200,000+</h3>
+            <p>Raised from bake sales in the last 2 years</p>
+          </div>
+          <div class="stat">
+            <h3>20+</h3>
+            <p>Impact projects led by student GIN-makers</p>
+          </div>
+          <div class="stat">
+            <h3>600+</h3>
+            <p>Pairs of sneakers donated to orphanages in the Philippines</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Our Mission & Vision</h2>
+        <div class="mission-vision-grid">
+          <div class="mission-card">
+            <h3>Our Mission</h3>
+            <p>
+              We empower young people to collaborate locally, regionally, and globally as changemakers who build inclusive project-based sustainable solutions that address our shared global issues.
+            </p>
+          </div>
+          <div class="vision-card">
+            <h3>Our Vision</h3>
+            <p>
+              An empowered global Network led by young changemakers who nurture and mobilize transgenerational communities of local-global citizens to build an inclusive, equitable and sustainable world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating SDG badges -->
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">SDGs We Touch</h2>
+          <p style="color:#555; margin-bottom:0.4rem;">Hover the badges — they’ll bounce!</p>
+          <div class="sdg-badges">
+            <div class="sdg-badge sdg-1" data-sdg="1" tabindex="0">1</div>
+            <div class="sdg-badge sdg-2" data-sdg="2" tabindex="0">2</div>
+            <div class="sdg-badge sdg-3" data-sdg="3" tabindex="0">3</div>
+            <div class="sdg-badge sdg-4" data-sdg="4" tabindex="0">4</div>
+            <div class="sdg-badge sdg-5" data-sdg="5" tabindex="0">5</div>
+            <div class="sdg-badge sdg-6" data-sdg="6" tabindex="0">6</div>
+            <div class="sdg-badge sdg-7" data-sdg="7" tabindex="0">7</div>
+            <div class="sdg-badge sdg-8" data-sdg="8" tabindex="0">8</div>
+            <div class="sdg-badge sdg-9" data-sdg="9" tabindex="0">9</div>
+            <div class="sdg-badge sdg-10" data-sdg="10" tabindex="0">10</div>
+            <div class="sdg-badge sdg-11" data-sdg="11" tabindex="0">11</div>
+            <div class="sdg-badge sdg-12" data-sdg="12" tabindex="0">12</div>
+            <div class="sdg-badge sdg-13" data-sdg="13" tabindex="0">13</div>
+            <div class="sdg-badge sdg-14" data-sdg="14" tabindex="0">14</div>
+            <div class="sdg-badge sdg-15" data-sdg="15" tabindex="0">15</div>
+            <div class="sdg-badge sdg-16" data-sdg="16" tabindex="0">16</div>
+            <div class="sdg-badge sdg-17" data-sdg="17" tabindex="0">17</div>
+          </div>
+          <div id="sdg-detail" class="sdg-detail" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educational mini‑games (not a quiz) -->
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Learn by Doing</h2>
+          <p style="color:#555; margin-bottom:0.6rem;">Try these quick activities to practice everyday sustainability decisions.</p>
+
+          <!-- Game 1: Waste Sorter (drag items into bins) -->
+          <div id="waste-game" class="game-card">
+            <h3 style="margin-bottom:0.4rem;">Waste Sorter</h3>
+            <p class="game-tip">Drag items into the correct bin: Recycling, Compost, or Trash.</p>
+            <div class="waste-board">
+              <div class="waste-items" id="waste-items"></div>
+              <div class="waste-bins">
+                <div class="bin" data-bin="recycle" aria-label="Recycle"><span>♻️ Recycle</span></div>
+                <div class="bin" data-bin="compost" aria-label="Compost"><span>🌿 Compost</span></div>
+                <div class="bin" data-bin="trash" aria-label="Trash"><span>🗑️ Trash</span></div>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button id="waste-reset" type="button" class="cta-button secondary waste-reset">Reset</button>
+              <div id="waste-status" class="form-status waste-status"></div>
+            </div>
+          </div>
+
+          <!-- Game 2: Impact Estimator -->
+          <div id="impact-game" class="game-card">
+            <h3 style="margin-bottom:0.4rem;">Impact Estimator</h3>
+            <p class="game-tip">Move the sliders to see estimated yearly CO₂ savings.</p>
+            <div class="impact-grid">
+              <label>Reduced shower time everyday (min): <strong id="im-shower-val">8</strong>
+                <input type="range" min="3" max="15" value="8" id="im-shower">
+              </label>
+              <label>LED bulbs replaced: <strong id="im-bulbs-val">5</strong>
+                <input type="range" min="0" max="20" value="5" id="im-bulbs">
+              </label>
+              <label>Bike/walk instead of car (km/week): <strong id="im-bike-val">5</strong>
+                <input type="range" min="0" max="50" value="5" id="im-bike">
+              </label>
+            </div>
+            <div id="impact-result" class="impact-result"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Our Partnerships</h2>
+          <h3 class="mustang-title" style="margin-bottom:0.75rem;">Sneaker Kids Tokyo</h3>
+          <p style="color:#555; line-height:1.8;">
+            Sneaker Kids Tokyo is a Japan-based organization focused on donating sneakers to underprivileged communities and orphanages in Cebu, Philippines. The founder first went to Cebu and saw many kids playing basketball—his favorite sport—barefoot on uneven pavement. This inspired him to take action.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>Their Journey:</strong> He first delivered shoes to 15 orphans in 2014, gathering shoes from his sister's basketball team. However, they were too big for the young children. He promised to return in 3 months with proper sneakers. They started collecting unwanted sneakers through social media and word of mouth, personally delivering them to the Philippines.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>Impact:</strong> Over 10 years, with 50+ volunteers, they've donated over 13,000 pairs of shoes and traveled to the Philippines over 25 times. In August, they went to Cebu and donated over 600 pairs of shoes, visiting 8 orphanages in Bogo, Sogod, and Cebu city.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>Why It Matters:</strong> There are over 1.8 million orphans in the Philippines. For many children, receiving donated sneakers is their first experience of choosing something for themselves. Some children don't wear their received sneakers every day because they are so precious to them. The goal is to ensure every child can wear sneakers daily.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>GIN's Collaboration:</strong> On October 29, 2024, GIN invited Sneaker Kids Tokyo to ASIJ to learn more about changemaking and explore collaboration opportunities. We finalized plans for the 2025 sneaker drive with a goal of collecting many more sneakers than the previous year.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg team-info">
+      <div class="container">
+        <h3>Get Involved</h3>
+        <p>Ready to join or learn more? Visit the Join page for membership info or contact us directly.</p>
+        <br><a class="cta-button secondary" href="join.html">Get Membership Info</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Subscribe for updates</h4>
+          <form id="subscribe-form" class="footer-subscribe">
+            <input type="email" name="email" placeholder="your@email" required />
+            <button type="submit" class="cta-button">Subscribe</button>
+            <small>We’ll send occasional GIN updates.</small>
+          </form>
+        </div>
+        <div class="footer-section">
+          <h4>GIN at ASIJ</h4>
+          <p>Building connections, creating opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="events.html#spirit-day">Spirit Day</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+            <li><a href="join.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 GIN at ASIJ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
