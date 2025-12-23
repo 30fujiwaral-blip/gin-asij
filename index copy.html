@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIN at ASIJ</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Global Issues Network (GIN) at ASIJ — students leading sustainable, inclusive change through projects and events." />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo"><a href="index.html" aria-label="GIN Home"><img src="assets/2Logocopy.png" alt="GIN at ASIJ" class="logo-img"></a></div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="team.html" class="nav-link">Our Team</a></li>
+          <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+        </ul>
+        <div class="nav-clock" aria-live="polite" title="Current time"></div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Announcement banner (site-wide, dismissible) -->
+  <div class="announce" id="announce" role="status" aria-live="polite" style="display:none;">
+    <div class="inner">
+      <div class="msg" id="announce-msg">Announcement</div>
+      <button class="close" id="announce-close" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- Global search bar -->
+  <div class="site-search" id="site-search" style="display:none;">
+    <div class="container">
+      <input id="search-input" type="search" placeholder="Search this page… (press / to focus)" aria-label="Search" />
+      <button id="search-clear" class="cta-button secondary" type="button">Clear</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero hero-has-video">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/gin-hero.png">
+        <source src="assets/hero-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="container hero-content">
+        <h1 class="hero-title">Global Issues Network @ ASIJ</h1>
+        <p class="hero-subtitle">Learn, lead, and make an impact through student-led projects.</p>
+
+        <!-- High-visibility upcoming / urgent alerts -->
+        <div class="hero-alerts" aria-label="Upcoming and urgent meetings">
+          <span class="hero-alerts-label">Upcoming</span>
+          <div class="hero-alerts-text">
+           Holiday! —  Dec 13th 2025- Jan 4th 2026 — Happy Holidays!
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <button class="cta-button" data-action="join">Join Now</button>
+          <button class="cta-button secondary" data-action="contact">Get Membership Info</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compact upcoming events box right under the hero video -->
+    <section class="section alt-bg hero-upcoming-section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Upcoming Events</h2>
+          <ul class="upcoming-list">
+            <li>
+              <span class="upcoming-date">Nov 17, 2025</span>
+              <span class="upcoming-name">Clothing Dozo</span>
+            </li>
+            <li>
+              <span class="upcoming-date">Dec 6th 2025&nbsp; &nbsp;WinterFest</span>
+              <span class="upcoming-name">Sustainability &amp; Animal Adoption Booth.</span>
+            </li>
+            <li>
+              <span class="upcoming-date">Spirit Day</span>
+              <span class="upcoming-name">Eco-spirit challenges and GIN photo booth.</span>
+            </li>
+            <li>
+              <span class="upcoming-date">More coming soon</span>
+              <span class="upcoming-name">Visit the Events page for full details.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="flip-wrapper">
+          <div id="flip">
+            <div class="words">
+              <div>GINgaged</div>
+              <div>GINitiate</div>
+              <div>GINvolved</div>
+              <div>GINspired</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is GIN? -->
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">What is GIN?</h2>
+          <p style="color:#555; font-size:1.05rem; line-height:1.8;">
+            GIN stands for the Global Issues Network — a worldwide student-led local, regional, and global impact movement. GIN began at the International School of Luxembourg in 2003 when educators recognized youth needed a platform to act on the biggest challenges facing our world. GIN is active at ASIJ, empowering student changemakers to learn, lead, and act through real projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact stats pulled from existing GIN-at-ASIJ site -->
+    <section class="section alt-bg" id="impact">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">GIN Impact at a Glance</h2>
+          <div class="about-stats">
+            <div class="stat">
+              <h3>¥200,000+</h3>
+              <p>Raised from bake sales in the last 2 years.</p>
+            </div>
+            <div class="stat">
+              <h3>20+</h3>
+              <p>Impact projects led by student GIN-makers.</p>
+            </div>
+            <div class="stat">
+              <h3>600+</h3>
+              <p>Pairs of sneakers donated to orphanages in the Philippines.</p>
+            </div>
+            <div class="stat">
+              <h3>379</h3>
+              <p>Sneakers collected in 2025 drive alone.</p>
+            </div>
+            <div class="stat">
+              <h3>3,000+</h3>
+              <p>Community members reached at Winterfest events.</p>
+            </div>
+            <div class="stat">
+              <h3>8</h3>
+              <p>Orphanages supported in Cebu, Philippines.</p>
+            </div>
+          </div>
+          <p style="margin-top:1.25rem; color:#555;">
+            GIN at ASIJ collaborates with partners such as Sneaker Kids Tokyo, Papaya Academy (book drives), Help4Refugees in Jordan, ASD (American School of Dubai) in the U.A.E, and ARK for animal advocacy events.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability Tip of the Week -->
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Sustainability Tip of the Week</h2>
+          <h3 class="mustang-title" style="margin-bottom:0.75rem;">The Hidden Cost of Fast Fashion</h3>
+          <ul style="color:#555; line-height:1.9; padding-left:1.1rem;">
+            <li>The fashion industry produces about 10% of global carbon emissions — more than international flights and shipping combined.</li>
+            <li>It can take roughly 2,700 liters of water to produce a cotton t-shirt — about what one person drinks in 3 years.</li>
+            <li>GIN is hosting a clothing drive until November 7th. Remember: Eco fashion is a MUSTang passion!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability Mini‑Quiz (moved under Tip of the Week) -->
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Sustainability Mini‑Quiz</h2>
+          <div id="sdg-quiz" class="sdg-quiz" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+<section class="section">
+      <div class="container">
+        <h2 class="section-title">WinterFest 2025</h2>
+        <div class="photo-gallery">
+          <div class="photo"><img src="https://imgur.com/0brz1zQ.jpg" alt="Spirit Day Photo 1"><div class="caption">WinterFest Fun!</div></div>
+          <div class="photo"><img src="https://imgur.com/OdiB1mz.jpg" alt="Spirit Day Photo 2"><div class="caption">Community Together</div></div>
+          <div class="photo"><img src="https://imgur.com/iRXtPSf.jpg" alt="Spirit Day Photo 3"><div class="caption">Making Impact</div></div>
+          <div class="photo"><img src="https://imgur.com/yaKc2qo.jpg" alt="Spirit Day Photo 4"><div class="caption">Team Spirit</div></div>
+          <div class="photo"><img src="https://imgur.com/UYAekQZ.jpg" alt="Spirit Day Photo 5"><div class="caption">Changemakers</div></div>
+          <div class="photo"><img src="https://imgur.com/w8Rcl35.jpg" alt="Spirit Day Photo 6"><div class="caption">Community Action</div></div>
+			<div class="photo"><img src="https://imgur.com/SE8l81O.jpg" alt="Spirit Day Photo 6"><div class="caption">Community Action</div></div>
+			<div class="photo"><img src="https://imgur.com/mhHRoxx.jpg" alt="Spirit Day Photo 6"><div class="caption">Community Action</div></div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured activities and events -->
+    <section class="section alt-bg" id="featured-activities">
+      <div class="container">
+        <h2 class="section-title">Featured Activities</h2>
+        <div class="activities-grid">
+          <article class="activity-card">
+            <h3>Winter Fest: Sustainable Giving & Animal Adoption</h3>
+            <p>Join GIN at Winter Fest, ASIJ's largest annual event with over 3,000 community members! Last year marked the 50th anniversary of Winterfest.</p>
+            <ul>
+              <li>Animal adoption event with ARK (Animal Refugee Kansai) - meet dogs and hamsters looking for homes!</li>
+              <li>Learn about sustainable giving: low-waste gift ideas and responsible holiday shopping.</li>
+              <li>Support donation drives that give a second life to clothing and supplies.</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <h3>Spirit Day Eco Challenges</h3>
+            <p>Show your Mustang spirit while taking on sustainability challenges! Spirit Day strengthens our community with live concerts, international food booths, and impact booths.</p>
+            <ul>
+              <li>FUN RECYCLING booth: Learn proper sorting for recycling, compost, and trash through interactive games.</li>
+              <li>Clothing Drive & Swap: "Eco Fashion is a MUSTANG PASSION" - collect and swap 2nd hand clothing.</li>
+              <li>Join our Spirit Day photo wall to celebrate sustainable choices.</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <h3>Year-Round Impact Projects</h3>
+            <p>Beyond big events, GIN runs student-led projects all year long:</p>
+            <ul>
+              <li><strong>Sneaker Drives:</strong> Partnership with Sneaker Kids Tokyo - collected 379 pairs in 2025 for orphanages in Cebu, Philippines.</li>
+              <li><strong>Bake Sales:</strong> Supporting refugees in the Middle East with Help4Refugees - raised ¥200,000+ in 2 years.</li>
+              <li><strong>Earth Day:</strong> Recycled-caps mural and sustainability quiz games.</li>
+              <li><strong>Book Drives:</strong> Partnering with Papaya Academy to support their library.</li>
+              <li><strong>Design your own project</strong> with mentor support - we'll help you make it happen!</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+ \
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Spirit Day 2025 Photo Gallery</h2>
+        <div class="photo-gallery">
+          <div class="photo"><img src="https://i.imgur.com/4sn78U3.jpg" alt="Spirit Day Photo 1"><div class="caption">Spirit Day Fun!</div></div>
+          <div class="photo"><img src="https://i.imgur.com/Jnlc4Vk.jpg" alt="Spirit Day Photo 2"><div class="caption">Community Together</div></div>
+          <div class="photo"><img src="https://i.imgur.com/9QXx6g9.jpg" alt="Spirit Day Photo 3"><div class="caption">Making Impact</div></div>
+          <div class="photo"><img src="https://i.imgur.com/NDERMR1.jpg" alt="Spirit Day Photo 4"><div class="caption">Team Spirit</div></div>
+          <div class="photo"><img src="https://i.imgur.com/TUnyCks.jpg" alt="Spirit Day Photo 5"><div class="caption">Changemakers</div></div>
+          <div class="photo"><img src="https://i.imgur.com/eh4dbVL.jpg" alt="Spirit Day Photo 6"><div class="caption">Community Action</div></div>
+			
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Meeting Add-to-Calendar -->
+    <section class="section" id="next-meeting">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Next Meeting</h2>
+          <div id="meeting-card" class="meeting-card">
+            <div id="meeting-info" class="meeting-info">Loading…</div>
+            <div class="meeting-actions" style="margin-top:0.6rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+              <button id="add-google-cal" class="cta-button" type="button">Add to Google Calendar</button>
+              <button id="download-ics" class="cta-button secondary" type="button">Download .ics (Apple/Outlook)</button>
+              <button id="edit-meeting" class="cta-button secondary" type="button">Edit</button>
+            </div>
+            <form id="meeting-form" class="meeting-form" style="display:none; margin-top:0.6rem; display:grid; gap:0.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+              <input type="text" id="mf-title" placeholder="Title (e.g., GIN Meeting)">
+              <input type="datetime-local" id="mf-start" placeholder="Start">
+              <input type="datetime-local" id="mf-end" placeholder="End">
+              <input type="text" id="mf-location" placeholder="Location (e.g., MS 306)">
+              <input type="text" id="mf-desc" placeholder="Description">
+              <div style="grid-column: 1/-1; display:flex; gap:0.5rem;">
+                <button id="mf-save" class="cta-button" type="button">Save</button>
+                <button id="mf-cancel" class="cta-button secondary" type="button">Cancel</button>
+                <button id="mf-clear" class="cta-button secondary" type="button">Clear</button>
+              </div>
+            </form>
+          </div>
+          <p style="margin-top:0.5rem; color:#777; font-size:0.9rem;">Tip: The meeting is stored in this browser. Use Export/Import in Members to share data, or set the meeting here on each device.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Members-only Access -->
+    <section class="section alt-bg" id="members-access">
+      <div class="container">
+        <div class="text-panel">
+          <h3 style="margin-bottom: 0.75rem; color:#3b538b;">Members Access</h3>
+          <p style="margin-bottom: 0.75rem; color:#555;">GIN members can request a one-time code via email (allowlist only).</p>
+          <div id="member-login" style="display:grid; gap:0.5rem;">
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+              <input type="email" id="member-email" placeholder="your.name@asij.ac.jp" aria-label="Member email" style="flex:1; min-width:240px; padding: 12px; border:2px solid #eee; border-radius:8px;" required />
+              <button id="send-code" class="cta-button secondary" type="button">Send Code</button>
+            </div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+              <input type="text" id="member-code" placeholder="Enter 6-digit code" aria-label="Verification code" style="flex:1; min-width:180px; padding: 12px; border:2px solid #eee; border-radius:8px;" />
+              <button id="verify-code" class="cta-button" type="button">Verify</button>
+            </div>
+            <div id="member-status" class="form-status" aria-live="polite"></div>
+          </div>
+          <p style="margin-top:0.5rem; font-size:0.9rem; color:#777;">Note: This is a simple gate on a static site. For sensitive data, use a server-side login.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Subscribe for updates</h4>
+          <form id="subscribe-form" class="footer-subscribe">
+            <input type="email" name="email" placeholder="your@email" required />
+            <button type="submit" class="cta-button">Subscribe</button>
+            <small>We’ll send occasional GIN updates.</small>
+          </form>
+        </div>
+        <div class="footer-section">
+          <h4>GIN at ASIJ</h4>
+          <p>Building connections, creating opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+            <li><a href="join.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> GIN at ASIJ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Email + OTP login using EmailJS (restricted to @asij.ac.jp) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="emailjs.config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
