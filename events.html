@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIN at ASIJ - Events</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Fullscreen top image */
+    .top-image {
+      width: 100%;
+      height: 100vh;
+      background: url('assets/P1140873.JPG') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      background-attachment: fixed; /* Parallax effect */
+    }
+
+    /* Typing title animation */
+    .top-image h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin: 0;
+      transform: translateY(-20%);
+      white-space: nowrap;
+      border-right: 3px solid white;
+      width: 0;
+      overflow: hidden;
+      animation: typing 2.5s steps(25) forwards, blink 0.75s step-end infinite;
+      max-width: 90vw; /* Prevent overflow */
+      box-sizing: border-box;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 7ch; } /* Fits "Events" exactly */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Navbar uses global styles from styles.css */
+
+    /* General transitions for interactivity */
+    * {
+      transition: all 0.3s ease;
+    }
+
+    /* Section fade-in animations */
+    [data-aos] {
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+
+    /* Project cards hover effect */
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Button hover glow */
+    .cta-button {
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .cta-button:hover {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
+
+    /* Animated gradient section */
+    .alt-bg {
+      background: linear-gradient(270deg, #2e8b57, #1c1c1c);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Footer styling tweak */
+    footer {
+      background-color: #111;
+      color: #ddd;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+<div class="logo"><a href="index.html" aria-label="GIN Home"><img src="assets/2Logocopy.png" alt="GIN at ASIJ" class="logo-img"></a></div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="team.html" class="nav-link">Our Team</a></li>
+          <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+        </ul>
+        <div class="nav-clock" aria-live="polite" title="Current time"></div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+</header>
+
+  <!-- Announcement banner (site-wide, dismissible) -->
+  <div class="announce" id="announce" role="status" aria-live="polite" style="display:none;">
+    <div class="inner">
+      <div class="msg" id="announce-msg">Announcement</div>
+      <button class="close" id="announce-close" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- Global search bar -->
+  <div class="site-search" id="site-search" style="display:none;">
+    <div class="container">
+      <input id="search-input" type="search" placeholder="Search this page… (press / to focus)" aria-label="Search" />
+      <button id="search-clear" class="cta-button secondary" type="button">Clear</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen top image with typing effect (moved below navbar) -->
+  <div class="top-image">
+    <h1 id="typing-text">Events</h1>
+  </div>
+
+  <main>
+    <!-- Announcements / Upcoming Events -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Highlighted Events</h2>
+          <div class="events-grid">
+            <article class="event-card">
+              <div class="event-date"><span class="month">NOV</span><span class="day">17</span></div>
+              <div class="event-info">
+                <h3>WinterFest 2025 Dec 6th</h3>
+                <p>Animal adoption Booth, See some of ARK's animals that are up for adotion while learning how you can help.</p>
+                <div class="event-time">All Day • See collection locations on campus</div>
+              </div>
+            </article>
+			    <article class="event-card">
+              <div class="event-date"><span class="month">NOV</span><span class="day">17</span></div>
+              <div class="event-info">
+                <h3>Clothing Drive 2025 (Oct 4 – Nov 17)</h3>
+                <p>Bring clean, gently used clothing (no stains or rips). Collection runs from Spirit Day (Oct 4) through Nov 7. Weekly updates will be posted.</p>
+                <div class="event-time">All Day • See collection locations on campus</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <div class="event-date"><span class="month">YEAR</span><span class="day">’25</span></div>
+              <div class="event-info">
+                <h3>You can also host an event!</h3>
+                <p>Have an idea? Lead a booth, run a drive, or launch a new project. We’ll help you design for impact.</p>
+                <div class="event-time"><button class="cta-button" data-action="join">Pitch Your Idea</button></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up" id="spirit-day">
+      <div class="container">
+        <h2 class="section-title">Spirit Day</h2>
+        <div class="text-panel">
+          <h3 class="mustang-title" style="margin-bottom:0.75rem;">Make YOUR Mustang Statement</h3>
+          <p style="color:#555; line-height:1.8;">
+            <strong>What is Spirit Day?</strong> Spirit Day is an event hosted by ASIJ to show our Mustang spirit and pride, and to strengthen our community. Many events such as live concerts, international food booths, and impact booths are hosted school-wide.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>GIN @ Spirit Day:</strong> We hosted a clothing drive and a fun recycling game to spread awareness about fast fashion and recycling. Our booth educated the Mustang body about the benefits of recycling and the effect trash has on the environment.
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>"Eco Fashion is a MUSTANG PASSION":</strong> We planned a clothing swap that collected clothes before, during, and after Spirit Day. The 2024 Winter Clothing Swap was extremely successful, showing our passion for 2nd hand clothing within the middle school.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg" data-aos="fade-up" id="winterfest">
+      <div class="container">
+        <h2 class="section-title">Winterfest</h2>
+        <div class="text-panel">
+          <h3 class="mustang-title" style="margin-bottom:0.75rem;">ASIJ's Largest Community Celebration</h3>
+          <p style="color:#555; line-height:1.8;">
+            <strong>What is Winterfest?</strong> In early December, the PTA's Winterfest sees over 3,000 members of our community celebrate the festive season with food, activities, shopping, and performances. Last year was ASIJ's 50th anniversary of having Winterfest!
+          </p>
+          <p style="color:#555; line-height:1.8;">
+            <strong>GIN @ Winterfest:</strong> We successfully hosted an animal adoption event, bringing dogs and hamsters to the school's largest annual event. This promoted responsible pet adoption and raised awareness about animals in shelters.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Recent Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card featured">
+            <span class="status complete">Complete</span>
+            <h3>WinterFest</h3>
+            <p>We hosted an Animal Adoption booth with games teaching how to treat dogs and out furry friends. Also by raiseing awarenss about giving them a Home.</p>
+          </article>
+			<article class="project-card featured">
+            <span class="status complete">Complete</span>
+            <h3>Clothing Drive&nbsp;</h3>
+            <p>We hosted an Clothing Dozo to give out free second hand clothing.</p>
+          </article>
+			<article class="project-card featured">
+            <span class="status complete">Complete</span>
+            <h3>Spirit Day Recycling Booth</h3>
+            <p>We hosted an interactive booth with a FUN RECYCLING game teaching proper sorting for recycling, compost, and trash.</p>
+          </article>
+
+          <article class="project-card featured ongoing">
+            <span class="status ongoing">Ongoing</span>
+            <h3>Clothing Drive with Sneaker Kids Tokyo</h3>
+            <p>Collecting and sorting donations to support local communities while promoting responsible consumption (SDG 12).</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Earth Day Recycled Mural</h3>
+            <p>Campus-wide art installation created from upcycled materials to raise awareness on sustainability (SDGs 12, 13).</p>
+          </article>
+
+          <article class="project-card ongoing">
+            <span class="status ongoing">Ongoing</span>
+            <h3>Animal Adoption Awareness</h3>
+            <p>Partnership with local shelters to promote adoption and responsible pet care (SDGs 11, 15). We are planning to host another animal adoption booth this year at WinterFest! See you there!</p>
+          </article>
+
+          <article class="project-card">
+            <h3>Community Bake Sales</h3>
+            <p>Student-organized bake sales funding humanitarian causes and local partnerships (SDGs 1, 2, 10). Possible bake sale soon — get more updates from us on this website.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg" data-aos="fade-up">
+      <div class="container">
+        <div class="team-info">
+         
+          <p>Bring your idea, gather a team, and we’ll help you design for impact. New members welcome.</p>
+          <button class="cta-button" data-action="join">Join GIN</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="photo-gallery">
+          <div class="photo">
+            <img src="assets/P1160234.JPG" alt="Designing project plans with Jordan Hattar" />
+            <div class="caption">Designing project plans with Jordan Hattar</div>
+          </div>
+          <div class="photo">
+            <img src="assets/P1150306.JPG" alt="Upcycled materials art display" />
+            <div class="caption">Upcycled art display</div>
+          </div>
+          <div class="photo">
+            <img src="assets/P1140998.JPG" alt="Community outreach booth" />
+            <div class="caption">Community outreach booth at Spirit Day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-aos="fade-up">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>GIN at ASIJ</h4>
+          <p>Building connections, creating opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="events.html#spirit-day">Spirit Day</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+            <li><a href="join.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 GIN at ASIJ. All rights reserved.</p>
+      </div>
+    </div>
+<footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Subscribe for updates</h4>
+          <form id="subscribe-form" class="footer-subscribe">
+            <input type="email" name="email" placeholder="your@email" required />
+            <button type="submit" class="cta-button">Subscribe</button>
+            <small>We’ll send occasional GIN updates.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+  <!-- Animation libraries -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
