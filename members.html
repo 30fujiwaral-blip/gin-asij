@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIN Members Area</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <script>
+    // Simple client-side gate; not secure. Redirect if no session flag.
+    try {
+      if (!sessionStorage.getItem('gin_access')) {
+        window.location.replace('index.html');
+      }
+    } catch (e) {
+      window.location.replace('index.html');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+<div class="logo"><a href="index.html" aria-label="GIN Home"><img src="assets/2Logocopy.png" alt="GIN at ASIJ" class="logo-img"></a></div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="team.html" class="nav-link">Our Team</a></li>
+          <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+          <li><a href="join.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-clock" aria-live="polite" title="Current time"></div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Members Area</h1>
+        <p class="hero-subtitle">Internal resources for GIN members</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Quick Links</h2>
+          <ul style="line-height:1.9; color:#555;">
+            <li><a href="https://docs.google.com/document/d/166rAo2KlIlWk43ONnXkQSHKOMEnap_ZkTZz2G4-_mFA/edit?tab=t.k0fm05fyw47g" target="_blank" rel="noopener">Meeting Notes</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1tZ21ptcswnkjcS2F54iWSEHlcpP7_-m0?usp=drive_link" target="_blank" rel="noopener">GIN Drive</a></li>
+            <li><a href="https://asij.edsby.com/p/Place/4576187" target="_blank" rel="noopener">GIN Edsby</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Announcements</h2>
+          <p>Post internal notes here. This page is “hidden” but not truly secure—avoid sensitive data.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Member Timeline Board</h2>
+          <p style="color:#555; margin-bottom: 0.75rem;">Use these boxes to track dates and details. Choose a status: Upcoming, In Progress, or Done.</p>
+          <div id="date-board" class="date-board"></div>
+          <div style="margin-top: 0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="add-date-card" class="cta-button secondary" type="button">Add Item</button>
+            <button id="save-date-board" class="cta-button" type="button">Save All</button>
+          </div>
+          <p style="margin-top: 0.5rem; color:#777; font-size: 0.9rem;">Tip: Your entries are saved in this browser only.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Team Quick Links (Editable)</h2>
+          <div id="links-board" class="links-board"></div>
+          <div style="margin-top: 0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="add-link" class="cta-button secondary" type="button">Add Link</button>
+            <button id="save-links" class="cta-button" type="button">Save Links</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Action Items</h2>
+          <div id="checklist" class="checklist"></div>
+          <div style="margin-top: 0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="add-task" class="cta-button secondary" type="button">Add Task</button>
+            <button id="save-tasks" class="cta-button" type="button">Save Tasks</button>
+          </div>
+          <div id="task-stats" style="margin-top: 0.5rem; color:#555; font-size:0.95rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kanban Project Board -->
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Project Kanban Board</h2>
+          <p style="color:#555; margin-bottom:0.5rem;">Drag cards between columns. Add owner initials and due dates. Saved in this browser; use Export/Import to move boards.</p>
+          <div id="kanban-board" class="kanban-board">
+            <div class="kanban-col" data-col="todo">
+              <h4>To Do</h4>
+              <div class="kanban-list" id="kanban-todo"></div>
+            </div>
+            <div class="kanban-col" data-col="progress">
+              <h4>In Progress</h4>
+              <div class="kanban-list" id="kanban-progress"></div>
+            </div>
+            <div class="kanban-col" data-col="blocked">
+              <h4>Blocked</h4>
+              <div class="kanban-list" id="kanban-blocked"></div>
+            </div>
+            <div class="kanban-col" data-col="done">
+              <h4>Done</h4>
+              <div class="kanban-list" id="kanban-done"></div>
+            </div>
+          </div>
+          <div style="margin-top:0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button id="kanban-add" class="cta-button secondary" type="button">Add Card</button>
+            <button id="kanban-save" class="cta-button" type="button">Save Board</button>
+            <button id="kanban-export" class="cta-button secondary" type="button">Export JSON</button>
+            <button id="kanban-import" class="cta-button secondary" type="button">Import JSON</button>
+            <input type="file" id="kanban-import-file" accept="application/json" style="display:none;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Polls / Voting -->
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Polls & Voting</h2>
+          <div id="polls-root" class="polls-root">
+            <div class="poll-create" style="display:grid; gap:0.5rem; margin-bottom:0.5rem;">
+              <input id="poll-q" type="text" placeholder="Poll question (e.g., Which project next?)" style="padding:10px; border:2px solid #eee; border-radius:10px;" />
+              <textarea id="poll-opts" placeholder="Options (one per line)" style="min-height:90px; padding:10px; border:2px solid #eee; border-radius:10px;"></textarea>
+              <label style="display:flex; gap:0.5rem; align-items:center;"><input id="poll-multi" type="checkbox"/> Allow multiple selections</label>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button id="poll-add" class="cta-button secondary" type="button">Create Poll</button>
+                <button id="poll-export" class="cta-button secondary" type="button">Export JSON</button>
+                <button id="poll-import" class="cta-button secondary" type="button">Import JSON</button>
+                <input type="file" id="poll-import-file" accept="application/json" style="display:none;" />
+              </div>
+            </div>
+            <div id="poll-list" class="poll-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Meeting Notes</h2>
+          <textarea id="notes-pad" class="notes-pad" placeholder="Type notes here..."></textarea>
+          <div id="notes-status" style="margin-top:0.5rem; color:#777; font-size:0.9rem;">Not saved yet</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Login Allowlist (Admin)</h2>
+          <p style="color:#555; margin-bottom:0.5rem;">Type emails below to allow access via email only (no code). Changes save to this browser only.</p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-bottom:0.5rem;">
+            <input type="email" id="allow-email" placeholder="name@asij.ac.jp" style="flex:1; min-width:260px; padding:12px; border:2px solid #eee; border-radius:10px;" />
+            <button id="add-allow" class="cta-button secondary" type="button">Add Email</button>
+            <button id="save-allow" class="cta-button" type="button">Save Allowlist</button>
+            <button id="reset-allow" class="cta-button secondary" type="button">Reset to Defaults</button>
+            <button id="export-allow" class="cta-button secondary" type="button">Export JSON</button>
+            <button id="import-allow" class="cta-button secondary" type="button">Import JSON</button>
+            <input type="file" id="import-allow-file" accept="application/json" style="display:none;" />
+          </div>
+          <div id="allowlist-list" class="allowlist-list"></div>
+          <p style="margin-top:0.5rem; color:#777; font-size:0.9rem;">Tip: Export to move the allowlist to another browser; Import a previously exported JSON file.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+      <div class="container">
+        <div class="text-panel">
+          <h2 class="section-title">Dates</h2>
+          <p>Nov 17th clothing dozo. 
+			  Dec 6th WinterFest</p>
+        </div>
+      </div>
+    </section>
+	
+	</main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>GIN at ASIJ</h4>
+          <p>Building connections, creating opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="events.html#spirit-day">Spirit Day</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+            <li><a href="join.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> GIN at ASIJ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIN at ASIJ - Projects</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Fullscreen top image */
+    .top-image {
+      width: 100%;
+      height: 100vh;
+      background: url('assets/Hello.jpg') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Typing title animation */
+    .top-image h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin: 0;
+      transform: translateY(-20%);
+      white-space: nowrap;
+      border-right: 3px solid white;
+      width: 0;
+      overflow: hidden;
+      animation: typing 2.5s steps(25) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 23ch; } /* Adjust based on title length */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Navbar uses global styles from styles.css */
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+<div class="logo"><a href="index.html" aria-label="GIN Home"><img src="assets/2Logocopy.png" alt="GIN at ASIJ" class="logo-img"></a></div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="team.html" class="nav-link">Our Team</a></li>
+          <li><a href="join-us.html" class="nav-link">Join Us</a></li>
+        </ul>
+        <div class="nav-clock" aria-live="polite" title="Current time"></div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+</header>
+
+  <!-- Announcement banner (site-wide, dismissible) -->
+  <div class="announce" id="announce" role="status" aria-live="polite" style="display:none;">
+    <div class="inner">
+      <div class="msg" id="announce-msg">Announcement</div>
+      <button class="close" id="announce-close" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- Global search bar -->
+  <div class="site-search" id="site-search" style="display:none;">
+    <div class="container">
+      <input id="search-input" type="search" placeholder="Search this page… (press / to focus)" aria-label="Search" />
+      <button id="search-clear" class="cta-button secondary" type="button">Clear</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen top image with typing effect (moved below navbar) -->
+  <div class="top-image">
+    <h1 id="typing-text">Projects & Initiatives</h1>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Featured & Ongoing</h2>
+        <div class="projects-grid">
+          <article class="project-card ongoing">
+            <span class="status ongoing">Ongoing</span>
+            <h3>Clothing Drive/Swap 2025 - "Gallop Towards Thrift!"</h3>
+            <p><strong>Eco Fashion is a MUSTang passion!</strong> GIN's 2nd clothing drive running through November 7th, 2025. We have a strong stance against fast fashion and are large supporters of 2nd hand clothing! Please bring clothes without stains or rips in good condition. Drop-off locations: MS Room 306, MS Office (opened Oct 7th), and MS Entrance (opened Oct 7th).</p>
+            <p><em>SDG Focus: SDG 12 (Responsible Consumption and Production)</em></p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed - 379 Pairs Collected!</span>
+            <h3>Sneaker Drive 2025</h3>
+            <p><strong>Success!</strong> We collected 379 sneakers! All successfully delivered to underprivileged communities and orphanages in Barili, Cebu, Philippines. This year we made it a whole-school Mustang Project including all divisions of ASIJ with parent community involvement. Our goal was 500 pairs (more than double last year's 240+ pairs). The drive ran from January 27 to February 21, 2025.</p>
+            <p><strong>Partnership:</strong> Collaborating with Sneaker Kids Tokyo, a Japan-based organization that has donated over 13,000 pairs of shoes over 10 years to children in the Philippines.</p>
+            <p><em>SDG Focus: SDG 1 (No Poverty), SDG 10 (Reduced Inequalities)</em></p>
+          </article>
+          <article class="project-card featured ongoing no-tilt">
+            <span class="status complete">Complete</span>
+            <h3>Spirit Day Trash Bin Recycling Booth</h3>
+            <p>At Spirit Day we ran an interactive booth that taught proper sorting rules for recycling, compost, and trash. Students played “Trashketball” by tossing mock items into the right bin for points, then checked answers with our sorting guide. Try a mini version below.</p>
+            <div id="waste-game-spirit" class="waste-embed">
+              <p class="game-tip">Drag each item into the correct bin.</p>
+              <div class="waste-board">
+                <div class="waste-items"></div>
+                <div class="waste-bins">
+                  <div class="bin" data-bin="recycle"><span>♻️ Recycle</span></div>
+                  <div class="bin" data-bin="compost"><span>🌿 Compost</span></div>
+                  <div class="bin" data-bin="trash"><span>🗑️ Trash</span></div>
+                </div>
+              </div>
+              <div class="game-actions" style="margin-top:0.5rem; display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+                <button type="button" class="cta-button secondary waste-reset">Reset</button>
+                <div class="form-status waste-status"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured ongoing">
+            <span class="status ongoing">Ongoing</span>
+            <h3>Clothing Drive with Sneaker Kids Tokyo</h3>
+            <p>Collecting and sorting donations to support local communities while promoting responsible consumption (SDG 12).</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Earth Day 2025 - Recycled-Caps Mural</h3>
+            <p><strong>Promoting Change-making:</strong> We hosted a booth at Earth Day to promote our Sneaker Drive! We had a sustainability quiz card game to increase awareness about the SDGs and what we can do.</p>
+            <p><strong>Recycled Mural:</strong> We collected P.E.T. bottle caps and glue-gunned them to a recycled plywood board to create a recycled GIN mural! Also showcased a video of GIN made by our members on a monitor.</p>
+            <p><em>SDG Focus: SDG 12 (Responsible Consumption), SDG 13 (Climate Action)</em></p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Animal Advocacy - "give LOVE get LOVE"</h3>
+            <p><strong>The Problem:</strong> Over 6 million dogs enter shelters worldwide annually. Only 3 million are adopted and the rest face euthanasia. These dogs deserve a permanent home.</p>
+            <p><strong>ARK Partnership:</strong> We partnered with ARK (Animal Refugee Kansai), established in 1990, sheltering dogs, cats, and even a bunny. We met with Ms. Okamoto at Futako Tamagawa station during their adoption event.</p>
+            <p><strong>Winterfest Success:</strong> We successfully hosted an animal adoption event at Winterfest, bringing dogs and hamsters to ASIJ's largest annual event. Collaborated with the HS Animal Advocacy Club for manpower and awareness spreading.</p>
+            <p><em>SDG Focus: SDG 15 (Life on Land), SDG 16 (Peace and Justice)</em></p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Bake Sale 2025 - Compassion in Action</h3>
+            <p><strong>Supporting Refugees:</strong> The 2025 Bake Sale supported refugees in the Middle East. We had the honor of meeting Shahd via Google Meet with Help4Refugees' Mr. Jordan Hattar. Shahd lost her home and family due to conflict and the 2023 earthquake. She is now studying in Turkey to become an interior designer and needs funding for counseling, tuition, food, and necessities.</p>
+            <p><strong>Whole School Participation:</strong> All 6 houses were represented with close to 20 bakers from grades 6 to 8. It was a sweet day for giving and spreading compassion to people who need it most.</p>
+            <p><em>SDG Focus: SDG 1 (No Poverty), SDG 10 (Reduced Inequalities), SDG 16 (Peace and Justice)</em></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Past projects drawn from earlier Spirit Day, Winterfest, and other initiatives -->
+    <section class="section alt-bg" id="past-projects">
+      <div class="container">
+        <h2 class="section-title">Past Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Spirit Day 2024: Eco-Spirit Games</h3>
+            <p>GIN hosted sustainability-themed games and a sorting booth where students practiced putting items in the right recycling, compost, and trash bins. The goal was to make waste sorting fun while reducing contamination in our school bins.</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>GIN @ Winterfest 2024</h3>
+            <p>At Winterfest, GIN ran an interactive stall focused on sustainable giving: low-waste gift ideas, reuse and donation, and information about ongoing drives like the sneaker and clothing collections.</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Sneaker Drive 2024</h3>
+            <p>Part of our yearly sneaker drive series in collaboration with Sneaker Kids Tokyo. Students collected and sorted sneakers to send to children in the Philippines, building toward our total of 600+ donated pairs.</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Clothing Dozo & Clothing Swap</h3>
+            <p>GIN organized Clothing Dozo and a clothing swap to extend the life of quality clothes instead of sending them to landfill. Students donated, swapped, and helped sort items, connecting to SDG 12: Responsible Consumption and Production.</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Book Drive - Supporting Education in the Philippines</h3>
+            <p><strong>The Mission:</strong> Send unused, unneeded, and abandoned books from ASIJ to where they're needed most. Books were collected from humanities classrooms, the library, and storage spaces throughout campus.</p>
+            <p><strong>Partner:</strong> Papaya Academy in the Philippines received all donated books to support their students' education.</p>
+            <p><strong>Why It Matters:</strong> Many books sit unused on shelves or in storage spaces - from the back of classrooms to forgotten closets. Why not bring those books to use and supply learning materials to people in need?</p>
+            <p><em>SDG Focus: SDG 4 (Quality Education)</em></p>
+          </article>
+
+          <article class="project-card ongoing">
+            <span class="status ongoing">Ongoing</span>
+            <h3>Paper Recycling Initiative - Every Classroom Counts</h3>
+            <p><strong>The Problem:</strong> Not all classrooms in ASIJ have paper recycling boxes. Most of our waste goes to incinerators, but why not recycle them and give them a second life?</p>
+            <p><strong>Our Goal:</strong> To have every classroom on campus equipped with a paper recycling box. Recycling is important, not just P.E.T bottles but paper too!</p>
+            <p><strong>Current Progress:</strong> We have a complete list of every Middle School classroom and whether they have recycling boxes or not. We are in the process of reaching out to people to purchase these boxes.</p>
+            <p><strong>Why It Matters:</strong> Recycling paper should be standard and normal. A circular economy is a worldwide goal that can happen at ASIJ too.</p>
+            <p><em>SDG Focus: SDG 12 (Responsible Consumption and Production)</em></p>
+          </article>
+          
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Bottle-Cap Recycling for Art</h3>
+            <p>Students collected P.E.T. bottle caps throughout campus to create the recycled GIN mural displayed at Earth Day. Turning everyday waste into powerful visual messages about sustainability.</p>
+            <p><em>SDG Focus: SDG 12 (Responsible Consumption and Production)</em></p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Scholarship Awareness</h3>
+            <p>GIN supported ASIJ’s scholarship program by helping spread the word so more students could learn about application opportunities and financial support options.</p>
+          </article>
+
+          <article class="project-card completed">
+            <span class="status complete">Completed</span>
+            <h3>Animal Advocacy Adoption Event</h3>
+            <p>Working with ARK and the HS Animal Advocacy Club, GIN helped host an animal adoption event at Winterfest that featured several dogs and hamsters, promoting responsible pet adoption.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="team-info">
+          <h3>Want to lead a project?</h3>
+          <p>Bring your idea, gather a team, and we’ll help you design for impact. New members welcome.</p>
+          <button class="cta-button" data-action="join">Join GIN</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="photo-gallery">
+          <div class="photo">
+            <img src="assets/P1160234.JPG" alt="Designing project plans with Jordan Hattar" />
+            <div class="caption">Designing project plans with Jordan Hattar</div>
+          </div>
+          <div class="photo">
+            <img src="assets/P1150306.JPG" alt="Upcycled materials art display" />
+            <div class="caption">Upcycled art display</div>
+          </div>
+          <div class="photo">
+            <img src="assets/P1140998.JPG" alt="Community outreach booth" />
+            <div class="caption">Community outreach booth at Spirit Day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Subscribe for updates</h4>
+          <form id="subscribe-form" class="footer-subscribe">
+            <input type="email" name="email" placeholder="your@email" required />
+            <button type="submit" class="cta-button">Subscribe</button>
+            <small>We’ll send occasional GIN updates.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>GIN at ASIJ</h4>
+          <p>Building connections, creating opportunities.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="events.html#spirit-day">Spirit Day</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
+            <li><a href="join.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 GIN at ASIJ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
