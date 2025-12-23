@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+collections:
+  - name: "homepage"
+    label: "Home Page"
+    files:
+      - file: "data/home.json"
+        label: "Edit Homepage"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Narrative", name: "body", widget: "markdown"}
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
