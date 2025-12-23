@@ -1,0 +1,13 @@
+- name: "members"
+  label: "Members Page"
+  files:
+    - file: "data/members.json"
+      label: "Members Area"
+      fields:
+        - {label: "Announcements", name: "announcements", widget: "markdown"}
+        - label: "Dates"
+          name: "dates"
+          widget: "list"
+          fields:
+            - {label: "Event", name: "event", widget: "string"}
+            - {label: "Details", name: "details", widget: "text"}
